@@ -3,3 +3,4 @@ pandas
 SimpleITK
 opencv-python
 tqdm
+scikit-learn
