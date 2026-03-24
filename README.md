@@ -35,7 +35,7 @@ The preprocessing pipeline incorporates a domain-specific Hounsfield Unit (HU) w
 
 ## 🚧 Ongoing Work
 
-* 🔄 Project 1: Heart Segmentation (MONAI 3D U-Net)
+* 🔄 Project 1: Heart Segmentation (MONAI 3D U-Net)(top priority)
 * 🔄 Project 3: NCCT ↔ CCTA Registration
 
 ---
@@ -58,7 +58,8 @@ pip install -r requirements.txt
 
 
 
-
+##ADIOS!!!
+### SEE U AROUND
 
 
 # PrediCT
