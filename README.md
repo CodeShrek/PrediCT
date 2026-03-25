@@ -32,10 +32,59 @@ The preprocessing pipeline incorporates a domain-specific Hounsfield Unit (HU) w
 * Output: Train / Validation / Test splits
 
 ---
+## 🚀 Task 1: Heart Segmentation Pipeline (Progress)
 
+### Objective
+Built a scalable preprocessing and segmentation pipeline for the COCA dataset, replacing slow silver-standard labeling (TotalSegmentator) with a lightweight, fast 3D U-Net.
+
+---
+
+### 🛠️ Implementation
+- **Preprocessing**
+  - Resampled CT volumes to 0.7 × 0.7 × 3.0 mm  
+  - Applied cardiac HU windowing [-150, 500]
+
+- **Ground Truth**
+  - Generated heart masks using TotalSegmentator (fast mode) on ~35 scans  
+
+- **Model**
+  - 3D Residual U-Net (MONAI)
+  - Multi-stage encoder-decoder with volumetric context awareness  
+
+- **Hardware**
+  - Optimized for Apple Silicon (MPS)
+  - Fast GPU-based inference  
+
+---
+
+### 📊 Results (Phase 1)
+- **Inference Time**: ~2.5s per scan (**~60x faster than TotalSegmentator**)  
+- **Dice Score**: 0.67~0.68 (initial training, 20 epochs)
+
+---
+
+### 🔍 Error Analysis & Fix
+- Issue: False positives in thoracic wall regions  
+- Fix: Applied **Largest Connected Component (LCC)** post-processing  
+- Result: Improved anatomical consistency for downstream tasks  
+
+---
+
+### 📂 Repository Contents (inside COCA_scripts)
+- `project1_task.py` → Training + preprocessing pipeline  
+- `task1_eval.py` → Evaluation + LCC post-processing  
+- `project1_heart_model.pth` → Trained weights  
+- `task1_visual_result_cleaned.png` → Qualitative results  
+
+---
+
+### 🚧 Next Steps
+- Improve Dice score (>0.85 target)
+- Experiment with **Tversky Loss** to reduce false positives  
+- Add deep supervision for better boundary segmentation  
 ## 🚧 Ongoing Work
 
-* 🔄 Project 1: Heart Segmentation (MONAI 3D U-Net)(top priority)
+* 🔄 Project 1: Heart Segmentation (top priority)(improvement)
 * 🔄 Project 3: NCCT ↔ CCTA Registration
 
 ---
