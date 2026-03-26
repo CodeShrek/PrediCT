@@ -12,6 +12,9 @@ This repository contains my implementation of the PrediCT GSoC 2026 evaluation t
 * Stratified dataset split (Null / Emergent / Established)
 * HU windowing (-150 to 500)
 * MONAI-compatible data pipeline
+---
+### ✅ Completed: Task 1
+* 🔄 Project 1: Heart Segmentation (top priority)- completed can be viewed in TASK_1 folder along with its report
 
 ---
 
@@ -55,13 +58,13 @@ Built a scalable preprocessing and segmentation pipeline for the COCA dataset, r
 
 ### 🚧 Next Steps
 - Project 3 (task3)implementation
-- 
+  
 ## 🚧 Ongoing Work
 
-* 🔄 Project 1: Heart Segmentation (top priority)- completed can be viewed in TASK_1 folder alogn with its report
 * 🔄 Project 3: NCCT ↔ CCTA Registration(in progress)
 
----
+
+
 
 
 
