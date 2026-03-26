@@ -43,7 +43,7 @@ Built a scalable preprocessing and segmentation pipeline for the COCA dataset, r
   - Generated heart masks using TotalSegmentator (fast mode) on ~35 scans  
 
 - **Model**
-  - 3D Residual U-Net (MONAI)
+  - 3D Residual U-Net (MONAI)->Attention-Gated 3D U-Net
   - Multi-stage encoder-decoder with volumetric context awareness  
 
 - **Hardware**
