@@ -35,14 +35,9 @@ The preprocessing pipeline incorporates a domain-specific Hounsfield Unit (HU) w
 ## 🚀 Task 1: Heart Segmentation Pipeline (Progress)
 
 ### Objective
-Built a scalable preprocessing and segmentation pipeline for the COCA dataset, replacing slow silver-standard labeling (TotalSegmentator) with a lightweight, fast 3D U-Net.
+Built a scalable preprocessing and segmentation pipeline for the COCA dataset, replacing slow silver-standard labeling (TotalSegmentator) with a lightweight, fast 3D U-Net(Attention-Gated 3D U-Net now).
 
 ---
-
-### 🛠️ Implementation
-- **Preprocessing**
-  - Resampled CT volumes to 0.7 × 0.7 × 3.0 mm  
-  - Applied cardiac HU windowing [-150, 500]
 
 - **Ground Truth**
   - Generated heart masks using TotalSegmentator (fast mode) on ~35 scans  
@@ -55,114 +50,25 @@ Built a scalable preprocessing and segmentation pipeline for the COCA dataset, r
   - Optimized for Apple Silicon (MPS)
   - Fast GPU-based inference  
 
----
-
-### 📊 Results (Phase 1)
-- **Inference Time**: ~2.5s per scan (**~60x faster than TotalSegmentator**)  
-- **Dice Score**: 0.67~0.68 (initial training, 20 epochs)
-
----
-
-### 🔍 Error Analysis & Fix
-- Issue: False positives in thoracic wall regions  
-- Fix: Applied **Largest Connected Component (LCC)** post-processing  
-- Result: Improved anatomical consistency for downstream tasks  
-
----
-
-### 📂 Repository Contents (inside COCA_scripts)
-- `project1_task.py` → Training + preprocessing pipeline  
-- `task1_eval.py` → Evaluation + LCC post-processing  
-- `project1_heart_model.pth` → Trained weights  
-- `task1_visual_result_cleaned.png` → Qualitative results  
 
 ---
 
 ### 🚧 Next Steps
-- Improve Dice score (>0.85 target)
-- Experiment with **Tversky Loss** to reduce false positives  
-- Add deep supervision for better boundary segmentation  
+- Project 3 (task3)implementation
+- 
 ## 🚧 Ongoing Work
 
-* 🔄 Project 1: Heart Segmentation (top priority)(improvement)
-* 🔄 Project 3: NCCT ↔ CCTA Registration
+* 🔄 Project 1: Heart Segmentation (top priority)- completed can be viewed in TASK_1 folder alogn with its report
+* 🔄 Project 3: NCCT ↔ CCTA Registration(in progress)
 
 ---
 
-## ⚙️ Setup
 
-```bash
-pip install -r requirements.txt
-```
 
----
-
-## 📚 Documentation
-
-* Dataset instructions → `docs/` folder
-
----
-
-## 📦 About PrediCT (Original Description Below)
+#Final submission for Task1 is present at TASK_1
+- its intital files are present in COCA_scripts just for version control ; along with a folder named Task1_pre_final_version which has prefinal version which yielded a score of 0.81 Dice.
 
 
 
 ##ADIOS!!!
 ### SEE U AROUND
-
-
-# PrediCT
-A project to enhance predictive power of routine non-contrast CT scans
-
-Problem:
-
-Current coronary artery calcium (CAC) tests are widely used in clinical practice but have limited predictive power regarding when and where future occlusions may occur. While more advanced imaging techniques such as Intravascular Ultrasound (IVUS) and optical coherence tomography (OCT) offer greater predictive capabilities and resolution, they are more resource-intensive, time-consuming, and less practical for routine use. At present, there is no diagnostic tool in cardiology that combines strong predictive ability with high clinical usability and accessibility.
-________________________________________
-Hypothesis:
-
-Machine learning models, when trained on a large set of CT scans, can detect predictive patterns in calcium deposition that are not readily identifiable by human interpretation. Such models could uncover hidden features that improve risk prediction beyond traditional scoring systems, discover correlations between clinical and image data, and enhance the predictive capability of these scans through powerful feature detection.
-________________________________________
-Current Direction:
-
-While we await data transfer of major adverse cardiovascular event (MACE) endpoints + NCCT from Kettering Health Network, we will focus on constructing a robust front end for our model using open source data (Stanford COCA, ImageCAS, etc.). This includes a calcium segmentation head that combines speed with accuracy while preserving accurate spatial relations. We also aim to map the heart anatomy to properly localize calcium deposits. We will perform extensive feature extraction and analysis, with the goal of creating distinct calcium phenotypes that may map to MACE endpoints. Eventually, with expert annotation, we hope to integrate other features such as EAT, Heart Chamber Volume, etc. To supplement our current efforts we are also exploring data augmentation using simulation-based synthetic calcium generation and placement into empty CAC scans.
-
-Clinical Translation (Long-Term Goal)
-
-o	Develop a clinician-facing tool that, based on a simple CAC scan, outputs:
-
-	Predicted time-dependent risk levels for MACE,
-	Likely anatomical regions of future occlusion?,
-	Confidence intervals for predictions.
-
-o	This tool could improve patient outcomes by assisting providers in balancing the risks of cardiac events with the risks of further tests, treatments, or surgeries.
-
-o	Longer-term, this framework could serve as a model for applying machine learning to preventive medicine more broadly.
-
-
-
-# PrediCT
-A project to enhance predictive power of routine non-contrast CT scans
-
-Problem:
-
-Current coronary artery calcium (CAC) tests are widely used in clinical practice but have limited predictive power regarding when and where future occlusions may occur. While more advanced imaging techniques such as Intravascular Ultrasound (IVUS) and optical coherence tomography (OCT) offer greater predictive capabilities and resolution, they are more resource-intensive, time-consuming, and less practical for routine use. At present, there is no diagnostic tool in cardiology that combines strong predictive ability with high clinical usability and accessibility.
-________________________________________
-Hypothesis:
-
-Machine learning models, when trained on a large set of CT scans, can detect predictive patterns in calcium deposition that are not readily identifiable by human interpretation. Such models could uncover hidden features that improve risk prediction beyond traditional scoring systems, discover correlations between clinical and image data, and enhance the predictive capability of these scans through powerful feature detection.
-________________________________________
-Current Direction:
-
-While we await data transfer of major adverse cardiovascular event (MACE) endpoints + NCCT from Kettering Health Network, we will focus on constructing a robust front end for our model using open source data (Stanford COCA, ImageCAS, etc.). This includes a calcium segmentation head that combines speed with accuracy while preserving accurate spatial relations. We also aim to map the heart anatomy to properly localize calcium deposits. We will perform extensive feature extraction and analysis, with the goal of creating distinct calcium phenotypes that may map to MACE endpoints. Eventually, with expert annotation, we hope to integrate other features such as EAT, Heart Chamber Volume, etc. To supplement our current efforts we are also exploring data augmentation using simulation-based synthetic calcium generation and placement into empty CAC scans.
-
-Clinical Translation (Long-Term Goal)
-
-o	Develop a clinician-facing tool that, based on a simple CAC scan, outputs:
-
-	Predicted time-dependent risk levels for MACE,
-	Likely anatomical regions of future occlusion?,
-	Confidence intervals for predictions.
-
-o	This tool could improve patient outcomes by assisting providers in balancing the risks of cardiac events with the risks of further tests, treatments, or surgeries.
-
-o	Longer-term, this framework could serve as a model for applying machine learning to preventive medicine more broadly.
