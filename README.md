@@ -14,9 +14,7 @@ This repository contains my implementation of the PrediCT GSoC 2026 evaluation t
 * MONAI-compatible data pipeline
 
 
----
-
-## 🔬 Design Rationale
+## 🔬 Design Rationale for Common Task:-
 
 Data volumes were resampled to an anisotropic resolution of 0.7 × 0.7 × 3.0 mm, explicitly prioritizing in-plane spatial resolution to capture sub-millimeter coronary calcifications while preserving the native 3.0 mm axial slice thickness. By avoiding z-axis interpolation, this design mitigates partial volume artifacts and avoids cross-slice blurring, thereby maintaining geometric fidelity for downstream multi-modal registration (NCCT-to-CCTA) in Project 3. This reflects a deliberate trade-off between voxel isotropy and anatomical integrity, preserving the sharp intensity gradients required for reliable Agatston scoring.
 
@@ -41,9 +39,8 @@ The preprocessing pipeline incorporates a domain-specific Hounsfield Unit (HU) w
 
 
 
-
 #Development reports of each fo the TASK(1&3) are present in their respective folders . 
-additionally, common task's documentation is simply this readme File.
+additionally, common task's documentation is simply this readme File(The Design Rationale Section).
 
-##ADIOS!!!
+## ADIOS!!!
 ### SEE U AROUND
