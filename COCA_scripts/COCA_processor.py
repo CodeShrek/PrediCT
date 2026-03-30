@@ -17,7 +17,7 @@ class COCAProcessor:
         # --- CRITICAL FIX FOR YOUR MAC ---
         # We removed the "data_raw/dicom/" parts that were causing the 0 series error
         self.dicom_root = self.project_root / "Gated_release_final" / "patient"
-        self.xml_root = self.project_root / "calcium_xml"
+        self.xml_root = self.project_root / "Gated_release_final" / "calcium_xml"
         # ---------------------------------
         
         self.out_images_base = self.project_root / "data_canonical" / "images"
