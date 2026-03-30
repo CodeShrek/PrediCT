@@ -12,9 +12,7 @@ This repository contains my implementation of the PrediCT GSoC 2026 evaluation t
 * Stratified dataset split (Null / Emergent / Established)
 * HU windowing (-150 to 500)
 * MONAI-compatible data pipeline
----
-### ✅ Completed: Task 1
-* 🔄 Project 1: Heart Segmentation (top priority)- completed can be viewed in TASK_1 folder along with its report
+
 
 ---
 
@@ -28,50 +26,24 @@ The preprocessing pipeline incorporates a domain-specific Hounsfield Unit (HU) w
 
 ---
 
+### ✅ Completed: 
+* 🔄 Project 1: Heart Segmentation (top priority)- completed can be viewed in TASK_1 folder along with its report
+*  Project 3 (task3)implementation- Completed task 3 and its results can be viewed in TASK 3 folder .
+*  Common task is present inside COCA_scripts as it was implemented on the original code .
+
 ## 📊 Dataset Summary
 
 * Total scans: ~787
 * Excluded scans: 2–3 (invalid depth)
 * Output: Train / Validation / Test splits
 
----
-## 🚀 Task 1: Heart Segmentation Pipeline (Progress)
-
-### Objective
-Built a scalable preprocessing and segmentation pipeline for the COCA dataset, replacing slow silver-standard labeling (TotalSegmentator) with a lightweight, fast 3D U-Net(Attention-Gated 3D U-Net now).
-
----
-
-- **Ground Truth**
-  - Generated heart masks using TotalSegmentator (fast mode) on ~35 scans  
-
-- **Model**
-  - 3D Residual U-Net (MONAI)->Attention-Gated 3D U-Net
-  - Multi-stage encoder-decoder with volumetric context awareness  
-
-- **Hardware**
-  - Optimized for Apple Silicon (MPS)
-  - Fast GPU-based inference  
-
-
----
-
-### 🚧 Next Steps
-- Project 3 (task3)implementation
-  
-## 🚧 Ongoing Work
-
-* 🔄 Project 3: NCCT ↔ CCTA Registration(in progress)
 
 
 
 
 
-
-#Final submission for Task1 is present at TASK_1
-- its intital files are present in COCA_scripts just for version control ; along with a folder named Task1_pre_final_version which has prefinal version which yielded a score of 0.81 Dice.
-
-
+#Development reports of each fo the TASK(1&3) are present in their respective folders . 
+additionally, common task's documentation is simply this readme File.
 
 ##ADIOS!!!
 ### SEE U AROUND
