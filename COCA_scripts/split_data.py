@@ -4,10 +4,11 @@ import shutil
 from pathlib import Path
 
 # Config
+# Updated Configuration with Absolute Paths
 BASE_DIR = Path("/Users/karan/Desktop/COCA/cocacoronarycalciumandchestcts-2")
-CSV_PATH = BASE_DIR / "data_canonical" / "tables" / "scan_index.csv"
-DATA_DIR = BASE_DIR / "data_resampled"
-OUTPUT_DIR = BASE_DIR / "gsoc_split"
+CSV_PATH = Path("/Users/karan/Desktop/COCA/cocacoronarycalciumandchestcts-2/data_canonical/tables/scan_index.csv")
+DATA_DIR = Path("/Users/karan/Desktop/COCA/cocacoronarycalciumandchestcts-2/data_resampled")
+OUTPUT_DIR = Path("/Users/karan/Desktop/COCA/cocacoronarycalciumandchestcts-2/gsoc_split")
 
 def create_split():
     df = pd.read_csv(CSV_PATH)
