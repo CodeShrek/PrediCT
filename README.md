@@ -1,6 +1,6 @@
 # GSoC 2026 – PrediCT Evaluation (Shriyam Baloni)
 
-## 🚀 My Contribution (Start Here)
+## 🚀 My Contribution 
 
 This repository contains my implementation of the PrediCT GSoC 2026 evaluation tasks, focusing on building a scalable preprocessing pipeline for coronary calcium analysis.
 
