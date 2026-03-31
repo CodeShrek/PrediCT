@@ -10,8 +10,8 @@ class COCAResampler:
         target_spacing: [x, y, z] in mm. [1.0, 1.0, 1.0] creates isotropic voxels.
         """
         self.project_root = Path(project_root)
-        self.input_csv = self.project_root / "data_canonical" / "tables" / "scan_index.csv"
-        self.output_dir = self.project_root / "data_resampled"
+        self.input_csv = Path("/Users/karan/Desktop/COCA/cocacoronarycalciumandchestcts-2/data_canonical/tables/scan_index.csv")
+        self.output_dir = Path("/Users/karan/Desktop/COCA/cocacoronarycalciumandchestcts-2/data_resampled")
         self.target_spacing = target_spacing
         
         # Create output directory
